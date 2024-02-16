@@ -1,0 +1,19 @@
+.fruit-counter-input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    /*margin: 0;*/
+    width: 1rem;
+    border: none;
+    text-align: center;
+}
+
+.fruit-section {
+    height: 100px;
+    border: 1px dashed cadetblue;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
