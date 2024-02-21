@@ -29,15 +29,23 @@ header p {
 
 
 }
+
 fieldset {
     border: 3px solid cadetblue;
     border-radius: 10px;
+    padding: 10px;
 }
 
-.delivery-details {
-    padding: 10px;
+.order-details {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
 
+.delivery-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

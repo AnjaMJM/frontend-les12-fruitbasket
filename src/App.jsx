@@ -16,15 +16,49 @@ import Button from "./components/Button/Button.jsx";
 // styling: inputveld geen border en geen interne counter
 
 function App() {
+    // orderform fruit
     let [counterStrawberry, setCounterStrawberry] = useState(0)
     let [counterKiwi, setCounterKiwi] = useState(0)
     let [counterBanana, setCounterBanana] = useState(0)
     let [counterApple, setCounterApple] = useState(0)
+    // delivery information
+    let [formState, setFormState] = useState({
+        firstname: "",
+        lastname: "",
+        age: 20,
+        zipCode: "",
+        orderFrequency: "Iedere Week",
+        deliveryTime: "Overdag",
+    })
+
+    function handleChange(e) {
+        const changedFieldName = e.target.name;
+
+        setFormState({
+            ...formState,
+            [changedFieldName]: e.target.value,
+
+        })
+        console.log()
+    }
+
+    // let [firstName, setFirstName] = useState("")
+    // let [lastName, setLastName] = useState("")
+    // let [age, setAge] = useState(0)
+    // let [zipCode, setZipCode] = useState("")
+    // let [orderFrequency, toggleOrderFrequency] = useState()
+    // let [deliveryTime, toggleDeliveryTime] = useState()
+    //
     const resetKey = () => {
         setCounterKiwi(0)
         setCounterStrawberry(0)
         setCounterBanana(0)
         setCounterApple(0)
+    }
+    const {firstname, lastname, age, zipCode, orderFrequency, deliveryTime} = formState
+    function handleSubmit(e) {
+        e.preventDefault( ); // zorgt ervoor dat de eerste (default) actie van een button (reset) niet wordt uitgevoerd
+        console.log ( {strawberry: counterStrawberry, apple: counterApple, kiwi: counterKiwi, banana: counterBanana, name: firstname + lastname, age: age, zipcode: zipCode, orderFrequency: orderFrequency, deliveryTime: deliveryTime })
     }
 
 
@@ -37,7 +71,7 @@ function App() {
 
             <main>
                 <form>
-                    <fieldset>
+                    <fieldset className="order-details">
                         <legend><h2> Kies je favoriete fruit:</h2></legend>
 
                         <FruitCounter
@@ -59,24 +93,71 @@ function App() {
 
                         <Button type="button" handleClick={resetKey}>Reset</Button>
                     </fieldset>
+
                     <fieldset className="delivery-details">
                         <legend><h2>Jouw gegevens:</h2></legend>
-                        <label htmlFor="voornaam">Voornaam: <input id="voornaam" type="text"/></label>
-                        <label htmlFor="achternaam">Achternaam: <input id="achternaam" type="text"/></label>
-                        <label htmlFor="leeftijd">Leeftijd: <input id="leeftijd" type="text"/></label>
-                        <label htmlFor="postcode-en-huisnr.">Postcode en huisnr.: <input id="postcode-en-huisnr."
-                                                                                         type="text"/></label>
-                        <label htmlFor="bezorgfrequentie">Bezorgfrequentie: <select id="bezorgfrequentie">
+                        <label htmlFor="voornaam">Voornaam:
+                            <input
+                                id="voornaam"
+                                type="text"
+                                name="firstname"
+                                value={formState.firstname}
+                                onChange={handleChange}
+                            /></label>
+                        <label htmlFor="achternaam">Achternaam:
+                            <input
+                                id="achternaam"
+                                type="text"
+                                name="lastname"
+                                value={formState.lastname}
+                                onChange={handleChange}
+                            /></label>
+                        <label htmlFor="leeftijd">Leeftijd:
+                            <input
+                                id="leeftijd"
+                                type="text"
+                                name="age"
+                                value={formState.age}
+                                onChange={handleChange}
+                            /></label>
+                        <label htmlFor="postcode">Postcode:
+                            <input id="postcode"
+                                   type="text"
+                                   name="zipCode"
+                                   value={formState.zipCode}
+                                   onChange={handleChange}
+                            /></label>
+                        <label htmlFor="bezorgfrequentie">Bezorgfrequentie:
+                            <select
+                                id="bezorgfrequentie"
+                                name="orderFrequency"
+                                value={formState.orderFrequency}
+                                onChange={handleChange}
+                            >
                             <option value="Iedere week">Iedere week</option>
                             <option value="Iedere twee weken">Iedere twee weken</option>
                             <option value="Iedere maand">Iedere maand</option>
                             <option value="Eenmalig">Eenmalig</option>
                         </select></label>
-                        <label>Bezorgmoment: <input id="bezorgen-overdag" type="radio"
-                                                                           name="bezorgmoment"
-                                                                           value="Overdag"/><label htmlFor="bezorgen-overdag">Overdag</label>
-                            <input id="bezorgen-avond" type="radio" name="bezorgmoment"
-                                   value="Avond'"/><label htmlFor="bezorgen-avond">Avond</label></label>
+                        <label>Bezorgmoment:
+                            <input id="bezorgen-overdag"
+                                   type="radio"
+                                   name="deliveryTime"
+                                   value="Overdag"
+                                   checked={formState.deliveryTime === "Overdag"}
+                                   onChange={handleChange}
+                            />
+                            <label htmlFor="bezorgen-overdag">Overdag</label>
+                            <input id="bezorgen-avond"
+                                   type="radio"
+                                   name="deliveryTime"
+                                   value="Avond"
+                                   checked={formState.deliveryTime === "Avond"}
+                                   onChange={handleChange}
+                            />
+                            <label htmlFor="bezorgen-avond">Avond</label>
+                        </label>
+                        <button type="submit" onClick={(e) => {handleSubmit(e)}}>Bestellen</button>
                     </fieldset>
                 </form>
             </main>
