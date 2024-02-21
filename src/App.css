@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Love+Ya+Like+A+Sister&display=swap');
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+    color: cadetblue;
+}
+
+p,
+input,
+button,
+label,
+h2, h3, h4 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+}
+
+header {
+    border: 3px solid cadetblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    max-width: 60vw;
+    margin: 10px 20vw;
+}
+
+header p {
+    color: darkorange;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+fieldset {
+    border: 3px solid cadetblue;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 60vw;
+    margin: 10px 20vw;
+}
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+label input,
+label select{
+    margin: 0 10px;
+}
