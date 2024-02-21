@@ -76,25 +76,30 @@ function App() {
 
                         <FruitCounter
                             fruit="Aardbei"
+                            imgURL="https://img.icons8.com/?size=48&id=80828&format=png"
                             counter={counterStrawberry}
-                            setter={setCounterStrawberry}/>
+                            setter={setCounterStrawberry} />
+
                         <FruitCounter
                             fruit="Appel"
+                            imgURL="https://img.icons8.com/?size=48&id=5J0YM2MKuxZO&format=png"
                             counter={counterApple}
                             setter={setCounterApple}/>
                         <FruitCounter
                             fruit="Kiwi"
+                            imgURL="https://img.icons8.com/?size=48&id=81013&format=png"
                             counter={counterKiwi}
                             setter={setCounterKiwi}/>
                         <FruitCounter
                             fruit="Banaan"
+                            imgURL="https://img.icons8.com/?size=48&id=81292&format=png"
                             counter={counterBanana}
                             setter={setCounterBanana}/>
 
-                        <Button type="button" handleClick={resetKey}>Reset</Button>
+                        <Button type="button" handleClick={resetKey}>Reset fruit</Button>
                     </fieldset>
 
-                    <fieldset className="delivery-details">
+                    <fieldset className="order-details">
                         <legend><h2>Jouw gegevens:</h2></legend>
                         <label htmlFor="voornaam">Voornaam:
                             <input
@@ -157,7 +162,7 @@ function App() {
                             />
                             <label htmlFor="bezorgen-avond">Avond</label>
                         </label>
-                        <button type="submit" onClick={(e) => {handleSubmit(e)}}>Bestellen</button>
+                        <Button btnType="submit" handleClick={(e) => {handleSubmit(e)}}>Bestellen</Button>
                     </fieldset>
                 </form>
             </main>
@@ -166,14 +171,3 @@ function App() {
 }
 
 export default App
-
-// Het formulier bevat de volgende velden:
-// Voornaam
-// Achternaam
-// Leeftijd
-// Postcode
-// Selectbox met bezorgfrequentie. Opties: iedere week, om de week, iedere maand
-// Radiobuttons met tijdvak. Opties: overdag, 's avonds
-// Opmerking (textarea)
-// Akkoord met de voorwaarden (checkbox)
-// Verzendbutton

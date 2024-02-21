@@ -9,8 +9,6 @@
 
 .fruit-section {
     height: 100px;
-    border: 1px dashed cadetblue;
-
     display: flex;
     gap: 10px;
     align-items: center;

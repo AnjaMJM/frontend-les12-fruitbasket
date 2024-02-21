@@ -20,11 +20,14 @@ function FruitCounter({fruit, imgURL, counter, setter}) {
             <img className="fruit-image" src={imgURL} alt={fruit}/>
             <label htmlFor={fruit}>{fruit}</label>
             <Button
-                handleClick={decreaseFruit} disabled={counter <= 0}>-</Button>
+                btnType="button"
+                handleClick={decreaseFruit}
+                disabled={counter <= 0}>-</Button>
             <input id={fruit} type="number" className="fruit-counter-input" min="0" value={counter}
                    onChange={(e) => setter(e.target.value)}/>
             {/* input veld kan niet lager dan 0, door 'min' aan te geven. Tegelijk is de knop om minder fruit te bestellen disabled*/}
             <Button
+                btnType="button"
                 handleClick={increaseFruit}>+</Button>
 
         </section>

@@ -1,11 +1,11 @@
 import "./button.css"
 
-function Button({handleClick, children, disabled}) {
+function Button({handleClick, children, disabled, btnType}) {
 
 
     return (
         <button
-            type="button"
+            type={btnType}
             onClick={handleClick}
             disabled={disabled}
         >
